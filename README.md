@@ -1,6 +1,16 @@
 # EasyReqPermission
 APT实现的权限请求框架，简化请求流程，目前华为P20上验证通过
 # 基本用法
+## Maven
+```
+   maven{ url 'https://dl.bintray.com/zlgspace/maven' }
+```
+## 引用
+```
+   implementation 'com.zlgspace:easy-req-permission:1.0.6'
+   annotationProcessor 'com.zlgspace:erp-compile:1.0.6'
+```
+## 代码
 ```
    /**
     * 初始化，权限请求
