@@ -207,13 +207,13 @@ public class EasyReqPermissionProcessor extends AbstractProcessor {
 
         executionUnitInitBuilder = executionUnitInit.get(clzKey);
 
-        String permissionTagName = clzSimpleName+"_permissionTags";
+        String permissionTagName = methodName+"_permissionTags";
         executionUnitInitBuilder.append("PermissionTag "+permissionTagName+"[] = new PermissionTag["+permissions.length+"];\n");
         int index = 0;
         for(String p:permissions){
             executionUnitInitBuilder.append(permissionTagName+"["+(index++)+"] = new PermissionTag(\""+p+"\");\n");
         }
-        String unitName = clzSimpleName+"_Unit";
+        String unitName = methodName+"_Unit";
         executionUnitInitBuilder.append("ExecutionUnit "+unitName+" = new ExecutionUnit(\""+methodName+"\","+permissionTagName+");\n");
         executionUnitInitBuilder.append(unitName+".setName(\""+identifier+"\");\n");
         executionUnitInitBuilder.append("addExecutionUnit("+unitName+");\n");

@@ -32,7 +32,8 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':easy_req_permission')
-    implementation project(path: ':compile')
     annotationProcessor project(path: ':compile')
-    implementation project(path: ':annotation')
+
+    implementation 'com.zlgspace:easy-req-permission:1.0.6'
+    annotationProcessor 'com.zlgspace:erp-compile:1.0.6'
 }
