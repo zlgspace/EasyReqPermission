@@ -7,8 +7,8 @@ APT实现的权限请求框架，简化请求流程，目前华为P20上验证�
 ```
 ## 引用
 ```
-   implementation 'com.zlgspace:easy-req-permission:1.0.6'
-   annotationProcessor 'com.zlgspace:erp-compile:1.0.6'
+   implementation 'com.zlgspace:easy-req-permission:1.0.0'
+   annotationProcessor 'com.zlgspace:erp-compile:1.0.0'
 ```
 ## 代码
 ```
