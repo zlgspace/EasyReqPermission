@@ -1,12 +1,10 @@
 package com.zlgspace.easyreqpermission.test;
 
-import androidx.annotation.NonNull;
 
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.zlgspace.easyreqpermission.EasyReqPermission;
@@ -15,7 +13,6 @@ import com.zlgspace.easyreqpermission.annotation.NeedPermission;
 import com.zlgspace.easyreqpermission.annotation.ProclaimPermission;
 import com.zlgspace.easyreqpermission.annotation.RefusePermission;
 
-import java.util.Arrays;
 
 public class MainActivity extends Activity {
 
@@ -31,13 +28,6 @@ public class MainActivity extends Activity {
         findViewById(R.id.testBtn).setOnClickListener(view -> reqPermission.click());
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        reqPermission.onRequestPermissionsResult(requestCode,permissions,grantResults);
-        Log.d("MainActivity","permissions:"+ Arrays.toString(permissions));
-        Log.d("MainActivity","grantResults:"+ Arrays.toString(grantResults));
-    }
 
     @NeedPermission(permissions={Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA,Manifest.permission.CALL_PHONE},identifier = "1111")
     public void click(){
@@ -48,7 +38,6 @@ public class MainActivity extends Activity {
     public void click2(){
         Toast.makeText(this,"click",Toast.LENGTH_LONG).show();
     }
-
 
     @ForbidPermission(identifier = "1111")
     public void forbidPermission(){

@@ -1,14 +1,15 @@
 package com.zlgspace.easyreqpermission.utils;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 
-import static com.zlgspace.easyreqpermission.Constant.*;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import static com.zlgspace.easyreqpermission.Constant.*;
 
 
 public final class PermissionUtils {
@@ -26,6 +27,33 @@ public final class PermissionUtils {
                 permissions,
                 PERMISSIONS_REQUEST);
     }
+
+    /**
+     * 请求权限
+     * @param fragment
+     * @param permissions
+     */
+    public static void reqPermission(Fragment fragment, String ...permissions){
+        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.M)
+            return;
+        fragment.requestPermissions(
+                permissions,
+                PERMISSIONS_REQUEST);
+    }
+
+    /**
+     * 请求权限
+     * @param fragment
+     * @param permissions
+     */
+    public static void reqPermission(android.app.Fragment fragment, String ...permissions){
+        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.M)
+            return;
+        fragment.requestPermissions(
+                permissions,
+                PERMISSIONS_REQUEST);
+    }
+
 
     /**
      * 是否存在权限

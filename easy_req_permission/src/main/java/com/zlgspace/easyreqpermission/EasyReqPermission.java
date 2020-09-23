@@ -1,8 +1,6 @@
 package com.zlgspace.easyreqpermission;
 
 
-import android.app.Activity;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedHashMap;
@@ -11,11 +9,13 @@ import java.util.Map;
 public class EasyReqPermission {
     private static final Map<Class<?>, Constructor<? extends Unbinder>> BINDINGS = new LinkedHashMap<>();
 
-    public static<T> T bind(Activity activity){
-        Constructor<? extends Unbinder> constructor = findBindingConstructorForClass(activity.getClass());
+    public static<T> T bind(Object object){
+        Constructor<? extends Unbinder> constructor = findBindingConstructorForClass(object.getClass());
+        if(constructor==null)
+            return null;
         Unbinder unbinder = null;
         try {
-            unbinder = constructor.newInstance(activity);
+            unbinder = constructor.newInstance(object);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -39,8 +39,11 @@ public class EasyReqPermission {
         }
         try {
             Class<?> bindingClass = cls.getClassLoader().loadClass(clsName + "_ReqPermission");
+            if(bindingClass==null)
+                return null;
             //noinspection unchecked
-            bindingCtor = (Constructor<? extends Unbinder>) bindingClass.getConstructor(cls);
+//            bindingCtor = (Constructor<? extends Unbinder>) bindingClass.getConstructor(cls);
+            bindingCtor = (Constructor<? extends Unbinder>) bindingClass.getConstructor(Object.class);
         } catch (ClassNotFoundException e) {
             bindingCtor = findBindingConstructorForClass(cls.getSuperclass());
         } catch (NoSuchMethodException e) {

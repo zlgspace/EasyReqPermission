@@ -180,8 +180,8 @@ public class EasyReqPermissionProcessor extends AbstractProcessor {
             buildClass.appendImport("import com.zlgspace.easyreqpermission.EasyReqPermissionHandler;\n");
             buildClass.appendImport("import com.zlgspace.easyreqpermission.utils.PermissionUtils;\n");
 
-            buildClass.appendMethod("public "+clzSimpleName+"_ReqPermission( "+clzSimpleName+" obj ){\n");
-            buildClass.appendMethod("bindActivity(obj);\n");
+            buildClass.appendMethod("public "+clzSimpleName+"_ReqPermission( Object "+" obj ){\n");
+            buildClass.appendMethod("bindObject(obj);\n");
             buildClass.appendMethod("init();\n");
             buildClass.appendMethod("}\n");
             clzMap.put(clzKey,buildClass);
