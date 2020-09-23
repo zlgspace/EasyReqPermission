@@ -7,8 +7,8 @@ APT实现的权限请求框架，简化请求流程，目前华为P20上验证�
 ```
 ## 引用
 ```
-   implementation 'com.zlgspace:easy-req-permission:1.0.1'
-   annotationProcessor 'com.zlgspace:erp-compile:1.0.1'
+   implementation 'com.zlgspace:easy-req-permission:1.0.2'
+   annotationProcessor 'com.zlgspace:erp-compile:1.0.2'
 ```
 ## 代码
 ```
@@ -23,11 +23,6 @@ APT实现的权限请求框架，简化请求流程，目前华为P20上验证�
      */
    findViewById(R.id.testBtn).setOnClickListener(view -> reqPermission.click());
    
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        reqPermission.onRequestPermissionsResult(requestCode,permissions,grantResults);
-    }
     
      /**
      * 需要权限执行的函数
